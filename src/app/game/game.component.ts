@@ -11,20 +11,34 @@ import { Game } from '../../models/game';
 })
 export class GameComponent {
 
+  currentCard: string = '';
   pickCardAnimation = false;
-  game: Game | undefined;
+  game: Game = new Game;
 
-  ngOnInit():void {
+  ngOnInit(): void {
     this.newGame();
   }
 
   newGame() {
     this.game = new Game();
     console.log(this.game);
-    
+
   }
 
   takeCard() {
-    this.pickCardAnimation = true;
+    let nextCard = this.game.stack.pop();
+    if (!this.pickCardAnimation) {
+      if (nextCard !== undefined) {
+        this.currentCard = nextCard;
+      }
+
+      this.pickCardAnimation = true;
+
+
+      setTimeout(() => {
+        this.pickCardAnimation = false;
+      }, 1500);
+
+    }
   }
 }
