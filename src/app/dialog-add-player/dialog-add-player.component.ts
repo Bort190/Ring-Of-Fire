@@ -22,10 +22,11 @@ import {
   styleUrl: './dialog-add-player.component.scss'
 })
 export class DialogAddPlayerComponent {
+  constructor(public dialogRef: MatDialogRef<DialogAddPlayerComponent>){}
   name: string = '';
 
   onNoClick(): void {
-
+    this.dialogRef.close();
   }
 }
 

@@ -1,10 +1,10 @@
 <mat-card>
 	<mat-card-title>
-	{{ title }}
+	{{ card ?  title : 'Select a card' }}
 	</mat-card-title>
 
 	<mat-card-content>
-	{{ description }}
+	{{ card ? description : 'Click on the card deck to select your first card.' }}
 	</mat-card-content>
 
 </mat-card>
